@@ -29,10 +29,22 @@ namespace ConsoleApp1
         #region Constructors
 
         public Game(string name, decimal price, DateTime releasedate)
+        {
+            _name = name;
+            Price = price;
+            ReleaseDate = releasedate;
+        }
 
         public Game(string  name, decimal price)
+            : this(name, price, DateTime.Now)
+        {
+
+        }
+
 
         public Game() : this("", 0) { }
+
+        #endregion Constructors
 
         public override string ToString()
         {
@@ -45,10 +57,18 @@ namespace ConsoleApp1
         }
 
 
-    }//end of class
+    } //end of class
 
     public class ComputerGame : Game
     {
+        public string PEGI_Rating { get; set; }
 
+        public ComputerGame(string name, decimal price, DateTime date, string pegi)
+
+        public override string ToString()
+        
+        public decimal GetDiscountPrice()
+
+        public override void UpdatePrice(decimal percentageIncrease)
     }
 }

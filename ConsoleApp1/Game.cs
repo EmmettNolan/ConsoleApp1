@@ -64,10 +64,17 @@ namespace ConsoleApp1
         public string PEGI_Rating { get; set; }
 
         public ComputerGame(string name, decimal price, DateTime date, string pegi)
+             : base(name, price, date)
+        {
+            PEGI_Rating = pegi;
+        }
 
         public override string ToString()
         
         public decimal GetDiscountPrice()
+        {
+            return Price * .9m;
+        }
 
         public override void UpdatePrice(decimal percentageIncrease)
     }

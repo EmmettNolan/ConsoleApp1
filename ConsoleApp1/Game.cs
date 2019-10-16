@@ -35,7 +35,7 @@ namespace ConsoleApp1
             ReleaseDate = releasedate;
         }
 
-        public Game(string  name, decimal price)
+        public Game(string name, decimal price)
             : this(name, price, DateTime.Now)
         {
 
@@ -48,13 +48,14 @@ namespace ConsoleApp1
 
         public override string ToString()
         {
-            return string.Format($"{Name} {Price:c} {ReleaseDate.ToShortDateString}");
+            return string.Format($"{Name} {Price:c} {ReleaseDate.ToShortDateString()}");
         }
 
         public abstract void UpdatePrice(decimal percentageIncrease);
-        {
-
-        }
+        //{
+        //    Price *= (1 + percentageIncrease);
+        //}
+        
 
 
     } //end of class
@@ -70,12 +71,19 @@ namespace ConsoleApp1
         }
 
         public override string ToString()
-        
+        {
+            return string.Format($"{Name} {Price:c} {ReleaseDate.ToShortDateString()}");
+        }
+
         public decimal GetDiscountPrice()
         {
             return Price * .9m;
         }
 
         public override void UpdatePrice(decimal percentageIncrease)
+        {
+            Price *= (1 + percentageIncrease);
+            Console.WriteLine("Updating the price");
+        }
     }
 }
